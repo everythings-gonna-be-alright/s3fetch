@@ -102,7 +102,7 @@ class S3Fetch:
             max_pool_connections=connection_pool_connections,
         )
 
-        self.client = boto3.client("s3", region_name=region, config=client_config)
+        self.client = boto3.client("s3", region_name=region, endpoint_url="nyc3.digitaloceanspaces.com" config=client_config)
         self._object_queue = s3.get_download_queue()  # type: ignore
         self._failed_downloads = []  # type: ignore
         self._successful_downloads = 0
